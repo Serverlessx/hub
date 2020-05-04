@@ -39,6 +39,12 @@
 {{ template "images/get_image.sql" }}
 {{ template "images/register_image.sql" }}
 
+{{ template "subscriptions/add_subscription.sql" }}
+{{ template "subscriptions/delete_subscription.sql" }}
+{{ template "subscriptions/get_package_subscriptions.sql" }}
+{{ template "subscriptions/get_subscription.sql" }}
+{{ template "subscriptions/get_user_subscriptions.sql" }}
+
 ---- create above / drop below ----
 
 -- Nothing to do

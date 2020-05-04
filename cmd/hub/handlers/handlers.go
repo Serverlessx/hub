@@ -126,11 +126,20 @@ func (h *Handlers) setupRouter() {
 				r.With(h.Users.RequireLogin).Put("/", h.Packages.ToggleStar)
 			})
 		})
+		// r.Route("/subscription", func(r chi.Router) {
+		// 	r.Use(h.Users.RequireLogin)
+		// 	r.Route("/{packageID}", func(r chi.Router) {
+		// 		r.Get("/", h.Subscriptions.GetByPackage)
+		// 		r.Post("/", h.Subscriptions.Add)
+		// 		r.Delete("/", h.Subscriptions.Delete)
+		// 	})
+		// })
 		r.Post("/users", h.Users.RegisterUser)
 		r.Route("/user", func(r chi.Router) {
 			r.Use(h.Users.RequireLogin)
 			r.Get("/", h.Users.GetProfile)
 			r.Get("/orgs", h.Organizations.GetByUser)
+			// r.Get("/subscriptions", h.Subscriptions.GetByUser)
 			r.Put("/password", h.Users.UpdatePassword)
 			r.Put("/profile", h.Users.UpdateProfile)
 			r.Route("/chart-repositories", func(r chi.Router) {
