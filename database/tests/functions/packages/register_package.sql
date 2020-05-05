@@ -26,10 +26,16 @@ select register_package('
     "keywords": ["kw1", "kw2"],
     "home_url": "home_url",
     "readme": "readme-version-1.0.0",
-    "links": {
-        "link1": "https://link1",
-        "link2": "https://link2"
-    },
+    "links": [
+        {
+            "name": "link1",
+            "url": "https://link1"
+        },
+        {
+            "name": "link2",
+            "url": "https://link2"
+        }
+    ],
     "data": {
         "key": "value"
     },
@@ -107,7 +113,7 @@ select results_eq(
             '12.1.0',
             'digest-package1-1.0.0',
             'readme-version-1.0.0',
-            '{"link1": "https://link1", "link2": "https://link2"}'::jsonb,
+            '[{"name": "link1", "url": "https://link1"}, {"name": "link2", "url": "https://link2"}]'::jsonb,
             '{"key": "value"}'::jsonb,
             false
         )

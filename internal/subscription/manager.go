@@ -80,22 +80,6 @@ func (m *Manager) GetByUserJSON(ctx context.Context) ([]byte, error) {
 	return dataJSON, nil
 }
 
-// GetJSON returns the subscription requested as a json object.
-func (m *Manager) GetJSON(ctx context.Context, s *hub.Subscription) ([]byte, error) {
-	userID := ctx.Value(hub.UserIDKey).(string)
-	s.UserID = userID
-	if err := validateSubscription(s); err != nil {
-		return nil, err
-	}
-	query := "select get_subscription($1::json)"
-	sJSON, _ := json.Marshal(s)
-	var dataJSON []byte
-	if err := m.db.QueryRow(ctx, query, sJSON).Scan(&dataJSON); err != nil {
-		return nil, err
-	}
-	return dataJSON, nil
-}
-
 // validateSubscription checks if the subscription provided is valid to be used
 // as input for some database functions calls.
 func validateSubscription(s *hub.Subscription) error {

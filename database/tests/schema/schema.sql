@@ -1,6 +1,6 @@
 -- Start transaction and plan tests
 begin;
-select plan(81);
+select plan(80);
 
 -- Check default_text_search_config is correct
 select results_eq(
@@ -280,7 +280,6 @@ select has_function('register_image');
 select has_function('add_subscription');
 select has_function('delete_subscription');
 select has_function('get_package_subscriptions');
-select has_function('get_subscription');
 select has_function('get_user_subscriptions');
 
 -- Check package kinds exist

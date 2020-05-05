@@ -76,7 +76,7 @@ insert into snapshot (
     '12.1.0',
     'digest-package1-1.0.0',
     'readme-version-1.0.0',
-    '{"link1": "https://link1", "link2": "https://link2"}',
+    '[{"name": "link1", "url": "https://link1"}, {"name": "link2", "url": "https://link2"}]',
     '{"key": "value"}',
     true
 );
@@ -102,7 +102,7 @@ insert into snapshot (
     '12.0.0',
     'digest-package1-0.0.9',
     'readme-version-0.0.9',
-    '{"link1": "https://link1", "link2": "https://link2"}',
+    '[{"name": "link1", "url": "https://link1"}, {"name": "link2", "url": "https://link2"}]',
     '{"key": "value"}'
 );
 insert into package (
@@ -155,10 +155,16 @@ select is(
         "keywords": ["kw1", "kw2"],
         "home_url": "home_url",
         "readme": "readme-version-1.0.0",
-        "links": {
-            "link1": "https://link1",
-            "link2": "https://link2"
-        },
+        "links": [
+            {
+                "name": "link1",
+                "url": "https://link1"
+            },
+            {
+                "name": "link2",
+                "url": "https://link2"
+            }
+        ],
         "data": {
             "key": "value"
         },
@@ -206,10 +212,16 @@ select is(
         "keywords": ["kw1", "kw2", "older"],
         "home_url": "home_url (older)",
         "readme": "readme-version-0.0.9",
-        "links": {
-            "link1": "https://link1",
-            "link2": "https://link2"
-        },
+        "links": [
+            {
+                "name": "link1",
+                "url": "https://link1"
+            },
+            {
+                "name": "link2",
+                "url": "https://link2"
+            }
+        ],
         "data": {
             "key": "value"
         },
