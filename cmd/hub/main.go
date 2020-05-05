@@ -15,6 +15,7 @@ import (
 	"github.com/artifacthub/hub/internal/img/pg"
 	"github.com/artifacthub/hub/internal/org"
 	"github.com/artifacthub/hub/internal/pkg"
+	"github.com/artifacthub/hub/internal/subscription"
 	"github.com/artifacthub/hub/internal/user"
 	"github.com/artifacthub/hub/internal/util"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
@@ -45,6 +46,7 @@ func main() {
 		OrganizationManager:    org.NewManager(db, es),
 		UserManager:            user.NewManager(db, es),
 		PackageManager:         pkg.NewManager(db),
+		SubscriptionManager:    subscription.NewManager(db),
 		ChartRepositoryManager: chartrepo.NewManager(db),
 		ImageStore:             pg.NewImageStore(db),
 	}

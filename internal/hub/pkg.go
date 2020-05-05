@@ -22,17 +22,6 @@ type Maintainer struct {
 	Email        string `json:"email"`
 }
 
-// NotificationKind represents the kind of a notification.
-type NotificationKind int64
-
-const (
-	// NewPackageRelease represents a notification for a new package release.
-	NewPackageRelease NotificationKind = 0
-
-	// SecurityAlert represents a notification for a security alert.
-	SecurityAlert NotificationKind = 1
-)
-
 // Package represents a Kubernetes package.
 type Package struct {
 	PackageID         string                 `json:"package_id"`
@@ -101,12 +90,4 @@ type SearchPackageInput struct {
 	Orgs              []string      `json:"orgs,omitempty"`
 	ChartRepositories []string      `json:"chart_repositories,omitempty"`
 	Deprecated        bool          `json:"deprecated"`
-}
-
-// Subscription represents a user's subscription to receive notifications about
-// a given package.
-type Subscription struct {
-	UserID           string           `json:"user_id"`
-	PackageID        string           `json:"package_id"`
-	NotificationKind NotificationKind `json:"notification_kind"`
 }
