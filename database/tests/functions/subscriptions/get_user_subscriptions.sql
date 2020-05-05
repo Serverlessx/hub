@@ -62,6 +62,7 @@ values (:'user1ID', :'package2ID', 0);
 select is(
     get_user_subscriptions(:'user1ID')::jsonb,
     '[{
+        "package_id": "00000000-0000-0000-0000-000000000001",
         "kind": 0,
         "name": "Package 1",
         "normalized_name": "package-1",
@@ -75,6 +76,7 @@ select is(
         },
         "notification_kinds": [0, 1]
     }, {
+        "package_id": "00000000-0000-0000-0000-000000000002",
         "kind": 1,
         "name": "Package 2",
         "normalized_name": "package-2",

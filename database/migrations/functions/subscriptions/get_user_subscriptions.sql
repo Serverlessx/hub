@@ -3,6 +3,7 @@
 create or replace function get_user_subscriptions(p_user_id uuid)
 returns setof json as $$
     select coalesce(json_agg(json_build_object(
+        'package_id', package_id,
         'kind', package_kind_id,
         'name', name,
         'normalized_name', normalized_name,
